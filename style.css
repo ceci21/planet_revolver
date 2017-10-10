@@ -1,0 +1,162 @@
+body {
+  white-space: visible;
+  margin: 0px;
+  padding: 0px;
+}
+
+.solar-system {
+  background: linear-gradient(#000000, #000011);
+  width: 100vw;
+  height: 100vh;
+  z-index: 50;
+}
+
+.center {
+  top: 50vh;
+  left: 50vw;
+}
+
+.sun {
+  top: 48vh;
+  left: 48.5vw;
+  padding: 30px;
+  border-radius: 30px;
+  background: linear-gradient(0deg, red, yellow);
+  position: fixed;
+  z-index: 1000;
+}
+
+.entity {
+  display: inline;
+  background-color: white;
+  position: fixed;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.mercury {
+  animation: mercury-orbit 6s linear infinite;
+}
+
+.venus {
+  animation: venus-orbit 9s linear infinite;
+}
+
+.earth {
+  animation: earth-orbit 3s linear infinite;
+}
+
+.mars {
+  animation: mars-orbit 4s linear infinite;
+}
+
+.asteroid {
+  border: 2px solid white;
+  animation: asteroid-orbit 8s linear infinite;
+
+  padding: 1px;
+  border-radius: 1px;
+}
+
+.star-holder1 {
+  animation: star-holder-rotation 12s linear infinite;
+  transform-origin: 50% 50%;
+}
+
+.star-holder2 {
+  animation: star-holder-rotation 24s linear infinite;
+  transform-origin: 50% 50%;
+}
+
+@keyframes mercury-orbit {
+  0% {
+    -webkit-transform: rotate(0deg) translateX(5px) translateY(120px)
+      rotate(0deg) scale(5);
+  }
+  25% {
+    -webkit-transform: rotate(90deg) translateX(5px) translateY(120px)
+      rotate(-90deg) scale(2);
+  }
+  50% {
+    -webkit-transform: rotate(180deg) translateX(5px) translateY(120px)
+      rotate(-180deg) scale(0.5);
+  }
+  75% {
+    -webkit-transform: rotate(270deg) translateX(5px) translateY(120px)
+      rotate(-270deg) scale(2);
+  }
+  100% {
+    -webkit-transform: rotate(360deg) translateX(5px) translateY(120px)
+      rotate(-360deg) scale(5);
+  }
+}
+
+@keyframes venus-orbit {
+  0% {
+    -webkit-transform: rotate(0deg) translateX(20px) translateY(180px)
+      rotate(0deg) scale(2);
+  }
+  25% {
+    -webkit-transform: rotate(90deg) translateX(20px) translateY(180px)
+      rotate(-90deg) scale(0.75);
+  }
+  50% {
+    -webkit-transform: rotate(180deg) translateX(20px) translateY(180px)
+      rotate(-180deg) scale(0.6);
+  }
+  75% {
+    -webkit-transform: rotate(270deg) translateX(20px) translateY(180px)
+      rotate(-270deg) scale(0.75);
+  }
+  100% {
+    -webkit-transform: rotate(360deg) translateX(20px) translateY(180px)
+      rotate(-360deg) scale(2);
+  }
+}
+
+@keyframes earth-orbit {
+  from {
+    transform: rotate(0deg) translateX(180px) rotate(0deg);
+    opacity: 50%;
+  }
+  to {
+    transform: rotate(360deg) translate(180px) rotate(-360deg);
+    opacity: 75%;
+  }
+}
+
+@keyframes mars-orbit {
+  from {
+    transform: rotate(0deg) translateX(210px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translate(210px) rotate(-360deg);
+  }
+}
+
+@keyframes asteroid-orbit {
+  from {
+    transform: rotate(0deg) translateX(340px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translate(340px) rotate(-360deg);
+  }
+}
+
+@keyframes star-orbit {
+  from {
+    transform: rotate(0deg) translateX(100px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translate(100px) rotate(-360deg);
+  }
+}
+
+@keyframes star-holder-rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
