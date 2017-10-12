@@ -1,5 +1,4 @@
 body {
-  white-space: visible;
   margin: 0px;
   padding: 0px;
 }
@@ -19,11 +18,20 @@ body {
 .sun {
   top: 48vh;
   left: 48.5vw;
-  padding: 30px;
-  border-radius: 30px;
-  background: linear-gradient(0deg, red, yellow);
+  height: 70px;
+  width: 70px;
+  border-radius: 70px;
+  background-color: #ffc300;
   position: fixed;
   z-index: 1000;
+  animation: sun-rotation 80s linear infinite;
+}
+
+.sun-child {
+  display: block;
+  text-align: center;
+  color: white;
+  position: relative;
 }
 
 .entity {
@@ -35,27 +43,31 @@ body {
 }
 
 .mercury {
+  background-color: #daf7a6;
   animation: mercury-orbit 6s linear infinite;
 }
 
 .venus {
+  background-color: #ff5733;
   animation: venus-orbit 9s linear infinite;
 }
 
 .earth {
+  background-color: #900c3f;
   animation: earth-orbit 3s linear infinite;
 }
 
 .mars {
+  background-color: #581845;
   animation: mars-orbit 4s linear infinite;
 }
 
 .asteroid {
-  border: 2px solid white;
-  animation: asteroid-orbit 8s linear infinite;
-
-  padding: 1px;
+  height: 1px;
+  width: 1px;
   border-radius: 1px;
+  position: 'fixed';
+  padding: 0px;
 }
 
 .star-holder1 {
@@ -130,16 +142,16 @@ body {
     transform: rotate(0deg) translateX(210px) rotate(0deg);
   }
   to {
-    transform: rotate(360deg) translate(210px) rotate(-360deg);
+    transform: rotate(360deg) translateX(210px) rotate(-360deg);
   }
 }
 
 @keyframes asteroid-orbit {
   from {
-    transform: rotate(0deg) translateX(340px) rotate(0deg);
+    transform: rotate(0deg) translate(100px) rotate(0deg);
   }
   to {
-    transform: rotate(360deg) translate(340px) rotate(-360deg);
+    transform: rotate(360deg) translate(100px) rotate(-360deg);
   }
 }
 
@@ -158,5 +170,14 @@ body {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes sun-rotation {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
   }
 }

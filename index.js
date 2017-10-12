@@ -1,26 +1,31 @@
 $(document).ready(function() {
   console.log('Ready!');
-  createStars(1000);
+  createStars1(1000);
   createStars2(1000);
+  createAsteroids(700);
 });
 
 var createAsteroids = function(numberOfAsteroids) {
   var asteroids = [];
+  var time, top, left, widthVariance, sizeFactor;
   for (var n = 0; n < numberOfAsteroids; n++) {
     asteroids.push($('<span class="entity asteroid"></span>'));
-    var top = Math.random() * window.innerHeight * 4;
-    var left = Math.random() * window.innerWidth * 4;
-    var styleSettings = {
+    $('.sun-child').append(asteroids[n]);
+    sizeFactor = 300;
+    time = Math.random() * 10;
+    widthVariance = Math.random() * 100 - 1;
+    top = Math.sin(time) * (sizeFactor + widthVariance) + 30;
+    left = Math.cos(time) * (sizeFactor + widthVariance) + 30;
+    console.log('top: ', top, 'left: ', left);
+    var asteroidStyle = {
       top: top,
-      left: left,
-      animation: 'asteroid-orbit 2s linear infinite'
+      left: left
     };
-    asteroids[n].css(styleSettings);
-    $('.sun').append(asteroids[n]);
+    asteroids[n].css(asteroidStyle);
   }
 };
 
-var createStars = function(numberOfStars) {
+var createStars1 = function(numberOfStars) {
   var stars = [];
   for (var n = 0; n < numberOfStars; n++) {
     stars.push($('<span class="center entity star"></span>'));
